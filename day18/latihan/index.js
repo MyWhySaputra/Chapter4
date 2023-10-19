@@ -7,8 +7,7 @@ const fs = require('fs');
 // read file
 const isi = fs.readFileSync('./text.txt', 'utf-8');
 // write file
-const content = 'Hello, world!';
-fs.writeFileSync('output.txt', content);
+const write = fs.writeFileSync('./output', 'ini saya buat dengan index.js');
 //import person.json
 //const wahyu = require('./create.js');
 //const wahyu = require('./person.json');
