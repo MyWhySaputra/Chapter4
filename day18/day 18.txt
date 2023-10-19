@@ -1,0 +1,8 @@
+Ryan Dahl pada tahun 2009 membuat sebuah runtime environment buat Javascript di dalam sistem secara langsung. 
+Runtime tersebut memakai V8 Engine dari Chrome yang dimodifikasi sedemikian rupa biar bisa berjalan di dalam sistem secara langsung.
+Runtime itulah yang kita sebut sebagai Node Js.
+
+Jadi, sebenarnya sebuah program itu punya beberapa fase di dalam komputer pas mau di deliver dan dijalankan, sob.
+Runtime adalah saat dimana aplikasi berjalan dan Node Js punya peran penting dalam fase ini. 
+Sedangkan Javascript adalah interpreted language, di mana program nggak perlu melakukan kompilasi. Jadi, semua informasi kode Javascript bakal dieksekusi langsung di dalam runtime environment.
+
