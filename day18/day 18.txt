@@ -6,3 +6,32 @@ Jadi, sebenarnya sebuah program itu punya beberapa fase di dalam komputer pas ma
 Runtime adalah saat dimana aplikasi berjalan dan Node Js punya peran penting dalam fase ini. 
 Sedangkan Javascript adalah interpreted language, di mana program nggak perlu melakukan kompilasi. Jadi, semua informasi kode Javascript bakal dieksekusi langsung di dalam runtime environment.
 
+Kalo tadi Node Js merupakan tools buat menjalankan coding, sekarang kita bakal belajar Module apa aja yang bisa kita pakai di Node Js.
+
+Module dalam Javascript adalah seperangkat kode yang bisa kita pakai berdasarkan fungsi modul tersebut.
+
+Node Js punya module bernama fs, module ini berguna banget buat melakukan hal-hal yang berkaitan sama file sistem, kayak Read File atau Write File. Jadi, kita nggak perlu nulis kode itu dari nol lagi.
+
+Jenis - jenis modul :
+● Core Module
+Module yang udah ada dan bisa dipakai langsung setelah instalasi Node Js. Module ini dibikin langsung sama developer Node Js. 
+● Third Party Module
+Module yang dibikin sama pihak ketiga diluar developer Node Js. Buat memakainya, kita harus melakukan instalasi terlebih dahulu, gengs.
+● Local Module
+Module yang kita bikin sendiri.
+
+Pas melakukan instalasi Node Js, package manager atau NPM-nya juga otomatis terinstall, lho!
+
+Package manager adalah sebuah aplikasi yang dipakai buat mengatur (menambah atau menghapus) third party module dalam proyek yang kita kerjakan.
+
+npm init -y atau yarn init -y
+
+# menginstall dependencies
+npm install chalk --save
+
+# menginstall dev dependencies
+npm install nodemon --save-dev
+
+Ini dia bedanya Dependencies dan devDependencies~
+● Dependencies berisi daftar module yang bakal kita pakai sampai tahap production. Artinya, module bakal ikut di install ke server nantinya.
+● devDependencies berisi daftar module yang cuma dipakai pas development atau pengerjaan project dan nggak bakal ikut di install di server.
