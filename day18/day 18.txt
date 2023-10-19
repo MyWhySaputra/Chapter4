@@ -32,6 +32,8 @@ npm install chalk --save
 # menginstall dev dependencies
 npm install nodemon --save-dev
 
+nodemon : untuk me-run codingan secara live
+
 Ini dia bedanya Dependencies dan devDependencies~
 ● Dependencies berisi daftar module yang bakal kita pakai sampai tahap production. Artinya, module bakal ikut di install ke server nantinya.
 ● devDependencies berisi daftar module yang cuma dipakai pas development atau pengerjaan project dan nggak bakal ikut di install di server.

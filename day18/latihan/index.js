@@ -1,6 +1,6 @@
 // import module bernama `os`
 const os = require('os');
-const luasSegitiga = require('./segitiga.js');
+const luasSegitiga = require('./segitiga');
 
 //import module bernama `fs`
 const fs = require('fs');
