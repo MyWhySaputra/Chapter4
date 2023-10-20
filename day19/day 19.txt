@@ -1,0 +1,40 @@
+Express Js adalah library yang bisa kita pakai buat membangun aplikasi dalam bentuk web.
+
+npm install express
+
+Berikut adalah dua method yang umum dipakai dalam Express Js:
+1. app.listen()
+2. app.METHOD()
+
+1. app.listen() 
+Method yang dipakai untuk menyalakan web server saat file tersebut dijalankan. Method ini wajib dipanggil ya gengs karena server kita nggak bakal bisa menerima HTTP request dan response tanpa methode ini.
+
+2. app.METHOD() 
+Maksud dari app.METHOD() adalah Express.Js bisa menghandle berbagai jenis request method seperti GET, POST, PUT, DELETE. Jadi, method yang sebenarnya adalah app.get(), app.post(), app.put(), app.delete(). app.METHOD() juga berguna banget buat meregistrasikan sebuah handler pada suatu endpoint tertentu.
+
+Request
+Adalah parameter berupa object, di mana properti dari object tersebut adalah data-data terkait request, seperti: url, headers, dan body.
+Object ini berisi berbagai informasi di dalam properti-propertinya, tapi hanya 3 properti di atas yang bakal sering kita pakai. 
+Sebenarnya object ini hampir nggak punya method, tapi kalau kita memasang beberapa middleware custom, bisa aja object ini jadi punya method baru karena object ini emang mutable banget.
+
+Response
+Object ini punya banyak method dan properti yang nanti juga bakal banyak dipakai di dalam aplikasi. 
+Method-nya antara lain: Send, Status, JSON, sendFile, dan render.
+Saat kita memanggil method dari object response, ini berarti kita juga bakal memberikan respons ke client yang melakukan request.
+
+Middleware adalah sebuah fungsi yang mirip sama request handler, tapi dia punya parameter lain yaitu next.
+Next dipakai untuk memberi tahu express agar lanjut ke handler/middleware berikutnya.
+
+Berikut adalah 5 macam middleware yang bisa kita implementasi
+1. Application Level Middleware
+2. Built-In Middleware
+3. Route Level Middleware
+4. Third Party Middleware
+5. Error Handling Middleware
+
+RESTful API
+
+API atau Application Programming Interface adalah kumpulan aturan yang memungkinkan dua atau lebih program buat berkomunikasi satu sama lain.
+
+RESTful atau Representational State Transfer adalah jenis API atau yang menggambarkan bentuk dari API
+
