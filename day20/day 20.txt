@@ -1,24 +1,79 @@
-## Skill Metric
+RESTful APIs seperti jembatan komunikasi antara client dan server.
 
-- Node.JS
-- Package Management
-- Express.JS
-- ORM with Prisma
+7 cara terbaik buat bikin REST APIs
 
-## Delivery
+1. Menggunakan JSON sebagai Format Pengiriman dan Penerimaan Data
+Dulu, saat menerima dan merespons permintaan API, banyak yang menggunakan XML bahkan HTML. Tapi sekarang, JSON (JavaScript Object Notation) jadi format standar untuk mengirim dan menerima data API.
 
-- [x] Inisialisasi proyek Express.js dengan menggunakan perintah npm init -y
-- [x] Instal Express.js dan Prisma.js dengan menjalankan perintah npm install express prisma
-- [x] Implementasikan server Express.js dengan beberapa endpoint yang memanfaatkan Prisma.js untuk berinteraksi dengan basis data PostgreSQL yang telah Anda buat pada Challenge 3
-- [x] Contoh endpoint: /accounts untuk mengambil daftar akun, /deposit untuk melakukan deposit, /withdraw untuk melakukan penarikan, dan lainnya
-- [x] Buatlah pull request dari branch feature ke branch main di repositori GitHub
+2. Gunakan Kata Benda Daripada Kata Kerja dalam Endpoint
+Ketika kamu mendesain REST API, sebaiknya jangan pakai kata kerja didalam endpoint nya. 
+Gunakan kata benda untuk menunjukkan apa yang akan dilakukan oleh setiap endpoint tersebut.
+Ini karena metode HTTP seperti GET, POST, PUT, PATCH, dan DELETE sendiri sudah berupa kata kerja untuk melakukan operasi dasar CRUD (Create, Read, Update, Delete).
 
-## Criteria
+Singkatnya, biarkan metode HTTP menangani apa yang harus dilakukan oleh alamat tersebut. GET akan mengambil data, POST akan membuat data baru, PUT akan memperbarui data, dan DELETE akan menghapus data.
 
-- [x] Mampu membuat API menggunakan Express JS (40)
-- [x] Mempu melakukan CRUD kedalam database menggunakan Prisma (40)
-- [x] Mampu menggunakan JSON (20)
+3. Memberi Nama koleksi dengan Kata Benda Jamak
+Biar lebih jelas, sebaiknya nama koleksinya pake kata jamak. Jadi, bukan https://mysite.com/post/123, tapi https://mysite.com/posts/123. Bayangin aja kayak mainan-mainan yang ada di kotak mainan gede, bukan cuma satu mainan.
 
-## ERD
+4. Gunakan kode status yang tepat
+Saat kamu membuat API, penting untuk memberikan respon yang sesuai dengan request yang diterima.
 
-![Tux, the Linux](/ERD.png)
+Status Code Range Artinya
+100 – 199 Informational Responses
+contoh: 102 menunjukkan bahwa sumber daya sedang diproses.
+300 – 399 Redirects
+contoh: 301 itu berarti sumber daya telah dipindahkan secara permanen.
+400 – 499 Client-side errors
+contoh: 400 berarti ada permintaan yang salah dan Kode 404 berarti sumber daya tidak ditemukan.
+500 – 599 Server-side errors
+contoh: 500 itu berarti terdapat kesalahan di server, seperti kesalahan internal server
+
+5. Gunakan Nesting pada Endpoint untuk Menunjukkan Relasi
+Misalnya, di platform blog dengan banyak penulis, kita mau lihat postingan dari satu penulis. Nah, endpoint-nya jadi kayak gini: https://mysite.com/posts/author.
+Terus, setiap postingan pasti punya komentar sendiri kan? Jadi, buat nangkep komentarnya, endpoint-nya jadi kayak gini: https://mysite.com/posts/postId/comments.Tapi hati-hati ya, sebaiknya hindari penanaman yang lebih dari 3 tingkat karena hal ini dapat membuat API kurang elegan dan sulit dibaca.
+
+6. Gunakan Parameter bersama dengan URL
+Contohnya, ada URL kayak gini: https://mysite.com/posts?tags=javascript
+Nah, dengan URL ini, kita bisa langsung dapat artikel-artikel yang berhubungan dengan teknologi. Mirip kayak kita nyari buku di rak yang cuma isinya buku-buku teknologi. Jadi, cuma buku-buku teknologi aja yang kita dapetin.
+
+7. Mengatur Versi API
+Saat bikin RESTful API, penting banget kasih versi beda-beda. Biar nggak paksa pengguna buat pindah ke versi baru yang bisa bikin aplikasi jadi 'error'.
+Jadi, kalau bikin API, biasanya pake link kayak gini:
+● https://mysite.com/v1/ buat versi satu
+● https://mysite.com/v2/ buat versi dua.
+Pokoknya, bikin versi yang beda-beda ini penting banget. Jadi, pengguna punya pilihan. Kalau ada yang baru di versi terbaru, mereka bisa pake. Tapi kalau mereka suka yang lama, juga oke.
+
+Kenapa Harus Pakai Pagination
+- Lebih Cepat
+Dengan pagination, data yang diambil dari database jadi lebih sedikit, jadi responnya lebih cepat.
+- Navigasi lebih mudah
+Dengan pagination, pengguna juga jadi lebih mudah untuk melakukan navigasi melalui kumpulan data yang besar
+
+Error Handling
+Error Handling adalah cara Express buat menangkap dan memproses masalah yang muncul, baik yang terjadi baik secara synchronous maupun asynchronous.
+Express udah siapin Error Handling bawaan jadi kita nggak perlu repot-repot nulis sendiri dari awal deh.
+
+Catching Synchronous Errors
+Penting untuk memastikan bahwa Express menangkap semua error yang muncul saat kita lagi jalankan route handlers dan middleware.
+Error yang muncul pada kode synchronous di dalam route handlers dan middleware nggak perlu ditangani secara khusus. Kalau ada Error maka Express akan menangkap dan memprosesnya.
+
+Catching Asynchronous Errors
+Kalau ada error yang muncul dari kode yang jalan secara asynchronous, kamu harus kirim error itu ke fungsi next(). Di situ Express bakal menangkap dan memprosesnya secara otomatis.
+
+The default error handler
+Express udah punya error handler sendiri yang bisa menangani berbagai masalah yang mungkin muncul di aplikasi.
+Kalau kamu lempar error ke next() tapi nggak tangani oleh custom error handler, maka Express bakal ambil alih. Error bakal di tampilkan ke klien beserta stack trace-nya. Tapi, stack trace-ya nggak bakal tampil kalau lagi di mode produksi.
+Jangan lupa, kalau mau jalanin aplikasi di mode produksi, atur env variable NODE_ENV jadi production.
+
+Custom error handler
+Membuat error handler middleware sama seperti membuat middleware lainnya, bedanya error handler punya empat parameter yang harus dimasukin, bukan cuma tiga: (err, req, res, next).
+
+Data Validation
+Melakukan validasi data yang masuk sebelum menyimpannya ke dalam database adalah bagian penting dari pengembangan back-end.
+Untuk melakukan ini, kita akan menggunakan Joi sebagai validator nya.
+Install Joi dengan menjalankan npm install joi.
+
+Sebagai percobaan, kita akan menambahkan validasi didalam fungsi createPost, kode nya akan terlihat seperti kode di samping. Oh iya, jangan lupa import terlebih dahulu package joi nya ya!
+
+View engine adalah sebuah middleware yang nantinya bakal kita pakai buat me-render page HTML ke client.
+Ada banyak pilihan view engine yang bisa kita pakai, lho. Tapi, di sini kita bakal pakai EJS atau Embedded Javascript karena udah populer banget dalam Express Js.
