@@ -77,3 +77,6 @@ Sebagai percobaan, kita akan menambahkan validasi didalam fungsi createPost, kod
 
 View engine adalah sebuah middleware yang nantinya bakal kita pakai buat me-render page HTML ke client.
 Ada banyak pilihan view engine yang bisa kita pakai, lho. Tapi, di sini kita bakal pakai EJS atau Embedded Javascript karena udah populer banget dalam Express Js.
+
+PR: github (v1,v2)
+pagination
