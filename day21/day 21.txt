@@ -1,0 +1,14 @@
+ORM adalah suatu metode atau teknik pemrogramanyang dipakai buat mengubah (konversi) data darilingkungan bahasa pemrograman berorientasi objek(OOP) dengan lingkungan database relasional.
+
+ORM mempunya beberapa kelebihan nih, antara lain:
+● Memudahkan kita dalam mengimplementasikan model data.
+● Menghemat waktu karena kita tidak perlu menulis kode SQL yang banyak.
+● Mengurangi potensi kesalahan dalam mengakses database.
+● Mengabstraksi detail teknis database, yang dapat mempermudah perubahan jika diperlukan.
+
+ORM juga punya beberapa kekurangan, seperti:
+● Kadang-kadang kesulitan dalam mencocokkan objek dengan struktur database.
+● Perubahan skema database memerlukan perhatian khusus dan koordinasi.
+● Memerlukan waktu untuk memahami dan menguasai ORM.
+● Beberapa query yang kompleks mungkin tidak didukung.
+
